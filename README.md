@@ -5,7 +5,8 @@ to run:
 
 Specs:
 =============
-# COSC4368-RL-Project
+
+COSC4368-RL-Project
 
 In this project we will use reinforcement to learn and adapt “promising paths” in 2-agent setting. Learning objectives of the 2022 COSC 4368 Group Project include:
 * Understanding basic reinforcement learning concepts such as utilities, policies, learning rates, discount rates and their interactions.
