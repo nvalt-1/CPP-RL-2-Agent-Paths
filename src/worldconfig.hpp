@@ -3,14 +3,15 @@
 
 #include "position.hpp"
 #include <vector>
+#include <iostream>
+
+enum class Policy {PRANDOM, PEXPLOIT, PGREEDY};
+enum class Method {QL, SARSA};
+enum class Operator {N, E, S, W, P, D};
 
 class WorldConfig {
 public:
     static WorldConfig* instance();
-
-    enum class Policy {PRANDOM, PEXPLOIT, PGREEDY};
-    enum class Method {QL, SARSA};
-    enum class Operator {N, E, S, W, P, D};
 
     int worldSize;
     int pickupCapacity;
@@ -28,9 +29,14 @@ public:
     int penalty;
     int reward;
 
+    void print();
+    
 private:
     static WorldConfig* singleton;
+
     WorldConfig();
+    WorldConfig(const WorldConfig&);
+    WorldConfig& operator=(const WorldConfig&);
     ~WorldConfig();
 };
 

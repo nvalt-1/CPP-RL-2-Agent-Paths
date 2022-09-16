@@ -5,7 +5,10 @@ class Position {
 public:
     int x;
     int y;
-    Position(int, int);
+
+    bool operator==(const Position &rhs) const;
+    Position();
+    Position(int x, int y);
 };
 
 #endif

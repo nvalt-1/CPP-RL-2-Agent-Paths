@@ -3,6 +3,7 @@
 
 #include "worldconfig.hpp"
 #include <vector>
+#include <iostream>
 
 class RLState {
 public:
@@ -12,8 +13,9 @@ public:
     std::vector<bool> pickupStates;
     std::vector<bool> dropoffStates;
 
+    void print();
     RLState();
-    RLState(int, int, bool, std::vector<bool>, std::vector<bool>);
+    RLState(int agentX, int agentY, bool carryingBlock, std::vector<bool> pickupStates, std::vector<bool> dropoffStates);
 };
 
 #endif
