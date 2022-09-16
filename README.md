@@ -10,10 +10,10 @@ TODO:
 
 to compile manually:  
 `cd src`  
-`g++ -c position.cpp worldconfig.cpp rlstate.cpp qtable.cpp agent.cpp world.cpp clidisplay.cpp pdworld.cpp`
-`g++ position.o worldconfig.o rlstate.o qtable.o agent.o world.o clidisplay.o pdworld.o -o pdworld`
+`g++ -c position.cpp worldconfig.cpp rlstate.cpp qtable.cpp agent.cpp world.cpp clidisplay.cpp pdworld.cpp`  
+`g++ position.o worldconfig.o rlstate.o qtable.o agent.o world.o clidisplay.o pdworld.o -o pdworld`  
 
-Specs:
+Specification:
 =============
 
 COSC4368-RL-Project
