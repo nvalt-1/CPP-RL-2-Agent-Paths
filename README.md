@@ -1,7 +1,17 @@
 Rewrite of an old class assignment. 
+Has not been tested on windows or mac.
 
-to run:
-[]
+TODO:
+- Need to make a gui (using command line for now)
+- Need to allow for multiple experiments (hard-coded in main function)
+- Project structure needs to be organized
+- Add make files
+- Allow arbitrary experiments
+
+to compile manually:  
+`cd src`  
+`g++ -c position.cpp worldconfig.cpp rlstate.cpp qtable.cpp agent.cpp world.cpp clidisplay.cpp pdworld.cpp`
+`g++ position.o worldconfig.o rlstate.o qtable.o agent.o world.o clidisplay.o pdworld.o -o pdworld`
 
 Specs:
 =============
