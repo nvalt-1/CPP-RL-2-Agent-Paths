@@ -97,9 +97,12 @@ draw(bool slow) {
     std::cout.flush();
     #endif
     if(slow) {
-        for(int i = 0; i < 100000000; ++i) {
-            int x = i;
-        }
+        #ifdef _WIN32
+        Sleep(75);
+        #endif
+        #ifndef _WIN32
+        usleep(75);
+        #endif
     }
 }
 

@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
     #endif
     for(int i = 0; i < 500; ++i) {
         world->step();
-        if(i % 5 == 0) 
+        if(i % 10 == 0) 
             display->draw();
     }
 
@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
         if(i > 7300) 
             display->draw(true);
         else 
-        if(i % 5 == 0)
+        if(i % 10 == 0)
             display->draw();
     }
     std::cout << "FINAL:\n";
