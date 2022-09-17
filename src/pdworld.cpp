@@ -16,6 +16,9 @@ int main(int argc, char* argv[]) {
 
     config->policy = Policy::PRANDOM;
     // config->print();
+    #ifdef _WIN32
+    display->cls();
+    #endif
     for(int i = 0; i < 500; ++i) {
         world->step();
         if(i % 5 == 0) 
@@ -27,7 +30,10 @@ int main(int argc, char* argv[]) {
     // config->print();
     for(int i = 0; i < 7500; ++i) {
         world->step();
-        if(i % 5 == 0 || i > 7000) 
+        if(i > 7300) 
+            display->draw(true);
+        else 
+        if(i % 5 == 0)
             display->draw();
     }
     std::cout << "FINAL:\n";

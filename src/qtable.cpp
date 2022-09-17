@@ -144,7 +144,7 @@ encodeState(RLState state) {
 RLState
 QTable::
 decodeIndex(int index) {  
-    std::cout << "QTable::" << __func__ << "\n";
+    // std::cout << "QTable::" << __func__ << "\n";
     int remainder = index;
     int agentX = remainder / bases[0];
     remainder %= bases[0];
