@@ -1,11 +1,10 @@
 Rewrite of an old class assignment. 
-Has not been tested on windows or mac.
+Has not been tested on mac.
 
 TODO:
 - Need to make a gui (using command line for now)
 - Need to allow for multiple experiments (hard-coded in main function)
 - Project structure needs to be organized
-- Add make files
 - Allow arbitrary experiments
 
 to compile manually:  
