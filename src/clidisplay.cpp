@@ -101,7 +101,7 @@ draw(bool slow) {
         Sleep(75);
         #endif
         #ifndef _WIN32
-        usleep(75);
+        usleep(75000);
         #endif
     }
 }
