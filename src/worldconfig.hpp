@@ -13,21 +13,21 @@ class WorldConfig {
 public:
     static WorldConfig* instance();
 
-    int worldSize;
-    int pickupCapacity;
-    int dropoffCapacity;
-
+    // Must be set BEFORE creating World instance
     std::vector<Position> agentStartPositions;
     std::vector<Position> pickupPositions;
     std::vector<Position> dropoffPositions;
+    int worldSize;
 
-    Policy policy;
-    Method method;
-
+    // Can be changed any time
+    int pickupCapacity;
+    int dropoffCapacity;
     double alpha;
     double gamma;
     int penalty;
     int reward;
+    Policy policy;
+    Method method;
 
     void print();
     

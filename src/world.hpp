@@ -29,7 +29,7 @@ private:
     static World* singleton;
 
     bool isFinalState();
-    std::vector<Operator> applicableOperators(int agentID);
+    std::vector<Operator> applicableOperators(int agentID, bool ignoreAgents=false);
     void applyOperator(Operator op, int agentID);
 
     World();
