@@ -201,7 +201,7 @@ applyOperator(Operator op, int agentID) {
 void
 World::
 print() {
-    std::cout << "AGENTS: " << " ENTER\n";
+    std::cout << "AGENTS:\n";
     std::cout << "------------------------------" << "\n";
     for(auto it = agents.begin(); it != agents.end(); ++it) 
         it->print();
