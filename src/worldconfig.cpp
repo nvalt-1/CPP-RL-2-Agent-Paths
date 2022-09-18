@@ -31,24 +31,24 @@ print() {
     std::cout << "WORLD_SIZE       : " << worldSize << "\n";
     std::cout << "PICKUP_CAPACITY  : " << pickupCapacity << "\n";
     std::cout << "DROPOFF_CAPACITY : " << worldSize << "\n";
-    std::cout << "POLICY           : " << (policy == Policy::PRANDOM ? "PRANDOM" : policy == Policy::PEXPLOIT ? "PEXPLOIT" : "PGREEDY") << "\n";
-    std::cout << "METHOD           : " << (method == Method::QL ? "QL" : "SARSA") << "\n";
+    std::cout << "POLICY           : " << (policy == Policy::PRANDOM ? "PRANDOM" : policy == Policy::PEXPLOIT ? "PEXPLOIT" : "PGREEDY ") << "\n";
+    std::cout << "METHOD           : " << (method == Method::QL ? "QL   " : "SARSA") << "\n";
     std::cout << "ALPHA            : " << alpha << "\n";
     std::cout << "GAMMA            : " << gamma << "\n";
     std::cout << "PENALTY          : " << penalty << "\n";
     std::cout << "REWARD           : " << reward << "\n";
 
-    std::cout << "AGENT_START_POS  : " << "[";
+    std::cout << "AGENT_START_POS  : " << "[ ";
     for(auto &pos: agentStartPositions)
         std::cout << "(" << pos.x << ", " << pos.y << ") ";
     std::cout << "]\n";
 
-    std::cout << "PICKUP_POS       : " << "[";
+    std::cout << "PICKUP_POS       : " << "[ ";
     for(auto &pos: pickupPositions)
         std::cout << "(" << pos.x << ", " << pos.y << ") ";
     std::cout << "]\n";
 
-    std::cout << "DROPOFF_POS      : " << "[";
+    std::cout << "DROPOFF_POS      : " << "[ ";
     for(auto &pos: dropoffPositions)
         std::cout << "(" << pos.x << ", " << pos.y << ") ";
     std::cout << "]\n\n";

@@ -16,6 +16,7 @@ draw(bool slow) {
     #ifdef _WIN32
     setCursorPosition(0, 0);
     #endif
+    std::cout << "seed: " << seed << "\n";
     for(int y = 0; y < WorldConfig::instance()->worldSize; ++y) {
         std::cout << "[";
         for(int x = 0; x < WorldConfig::instance()->worldSize; ++x) {
@@ -54,7 +55,8 @@ draw(bool slow) {
         }
         std::cout << "]\n";
     }
-    World::instance()->print();
+    World::instance()->print(false);
+    WorldConfig::instance()->print();
     std::cout.flush(); 
 
     if(slow) {

@@ -23,7 +23,7 @@ public:
     bool step(bool resetOnFinal = true); // returns true if final state reached in this step
     void resetAll();
     void reset(bool clearTable = false);
-    void print();
+    void print(bool printAgents = true);
 
 private:
     static World* singleton;

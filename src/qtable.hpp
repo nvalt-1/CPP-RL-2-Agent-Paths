@@ -20,10 +20,10 @@ public:
 
 private:
     std::vector<std::vector<double>> table;
-    std::vector<int> bases;
+    std::vector<std::size_t> bases;
 
-    int encodeState(RLState state);
-    RLState decodeIndex(int index);
+    std::size_t encodeState(RLState state);
+    RLState decodeIndex(std::size_t index);
 };
 
 #endif

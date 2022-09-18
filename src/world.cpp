@@ -200,21 +200,23 @@ applyOperator(Operator op, int agentID) {
 
 void
 World::
-print() {
-    std::cout << "AGENTS:\n";
-    std::cout << "------------------------------" << "\n";
-    for(auto it = agents.begin(); it != agents.end(); ++it) 
-        it->print();
-    std::cout << "------------------------------" << "\n";
+print(bool printAgents) {
+    if(printAgents) {
+        std::cout << "AGENTS:\n";
+        std::cout << "------------------------------" << "\n";
+        for(auto it = agents.begin(); it != agents.end(); ++it) 
+            it->print();
+        std::cout << "------------------------------" << "\n";
+    }
 
-    std::cout << "PICKUP_STATES    : " << "[";
+    std::cout << "PICKUP_STATES    : " << "[ ";
     for(auto state: pickupStates)
-        std::cout << state << ", ";
+        std::cout << state << (state < 10 ? "  " : " ");
     std::cout << "]\n";
 
-    std::cout << "DROPOFF_STATES   : " << "[";
+    std::cout << "DROPOFF_STATES   : " << "[ ";
     for(auto state: dropoffStates)
-        std::cout << state << ", ";
+        std::cout << state << (state < 10 ? "  " : " ");
     std::cout << "]\n";
 
     std::cout << "STEPS_RUN        : " << stepsRun << "\n";

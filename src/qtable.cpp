@@ -3,10 +3,10 @@
 QTable::
 QTable() {
     // std::cout << "QTable::" << __func__ << " ENTER\n";
-    int worldSize = WorldConfig::instance()->worldSize;
-    int numPickup = WorldConfig::instance()->pickupPositions.size();
-    int numDropoff = WorldConfig::instance()->dropoffPositions.size();
-    int maxExp = numDropoff + numPickup + 1;
+    std::size_t worldSize = WorldConfig::instance()->worldSize;
+    std::size_t numPickup = WorldConfig::instance()->pickupPositions.size();
+    std::size_t numDropoff = WorldConfig::instance()->dropoffPositions.size();
+    std::size_t maxExp = numDropoff + numPickup + 1;
 
     table.resize(worldSize * worldSize * (1<<maxExp));
     for(auto &row : table) {
@@ -16,7 +16,7 @@ QTable() {
     // bases which will determine what to multiply/divide when encoding/decoding states
     bases.resize(maxExp+2);
     bases[0] = worldSize * 1<<maxExp;
-    for(int i = 1; i < maxExp+2; ++i)
+    for(std::size_t i = 1; i < maxExp+2; ++i)
         bases[i] = 1<<(maxExp - i + 1);
 }
 
@@ -123,19 +123,19 @@ QValues(RLState state) {
     return table[encodeState(state)];
 }
 
-int
+std::size_t
 QTable::
 encodeState(RLState state) {
     // std::cout << "QTable::" << __func__ << " ENTER\n";
-    int index = 0;
+    std::size_t index = 0;
     index += state.agentX * bases[0];
     index += state.agentY * bases[1];
     index += state.carryingBlock * bases[2];
 
-    for(int i = 0; i < state.pickupStates.size(); ++i) {
+    for(std::size_t i = 0; i < state.pickupStates.size(); ++i) {
         index += state.pickupStates[i] * bases[i+3];
     }
-    for(int i = 0; i < state.dropoffStates.size(); ++i) {
+    for(std::size_t i = 0; i < state.dropoffStates.size(); ++i) {
         index += state.dropoffStates[i] * bases[i+3+state.pickupStates.size()];
     }
     return index;
@@ -143,24 +143,24 @@ encodeState(RLState state) {
 
 RLState
 QTable::
-decodeIndex(int index) {  
+decodeIndex(std::size_t index) {  
     // std::cout << "QTable::" << __func__ << "\n";
-    int remainder = index;
-    int agentX = remainder / bases[0];
+    std::size_t remainder = index;
+    std::size_t agentX = remainder / bases[0];
     remainder %= bases[0];
-    int agentY = remainder / bases[1];
+    std::size_t agentY = remainder / bases[1];
     remainder %= bases[1];
     bool carryingBlock = remainder / bases[2];
     remainder %= bases[2];
 
     std::vector<bool> pickupStates(WorldConfig::instance()->pickupPositions.size());
-    for(int i = 0; i < WorldConfig::instance()->pickupPositions.size(); ++i) {
+    for(std::size_t i = 0; i < WorldConfig::instance()->pickupPositions.size(); ++i) {
         pickupStates[i] = (bool)(remainder / bases[i+3]);
         remainder %= bases[i+3];
     }
 
     std::vector<bool> dropoffStates(WorldConfig::instance()->dropoffPositions.size());
-    for(int i = 0; i < WorldConfig::instance()->dropoffPositions.size(); ++i) {
+    for(std::size_t i = 0; i < WorldConfig::instance()->dropoffPositions.size(); ++i) {
         dropoffStates[i] = (bool)(remainder / bases[i+3+WorldConfig::instance()->pickupPositions.size()]);
         remainder %= bases[i+3+WorldConfig::instance()->pickupPositions.size()];
     }
